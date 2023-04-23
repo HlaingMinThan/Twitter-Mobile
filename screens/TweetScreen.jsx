@@ -5,7 +5,7 @@ import profile from '../assets/react.jpg';
 import { EvilIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function TweetScreen({ route }) {
+export default function TweetScreen({ route, navigation }) {
     let tailwind = useTailwind()
     let item = {
         id: route.id,
