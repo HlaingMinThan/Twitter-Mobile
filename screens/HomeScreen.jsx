@@ -57,7 +57,7 @@ export default function HomeScreen({ navigation }) {
     ]
 
     const TweetItem = ({ item }) => (
-        <View style={tailwind('border-b-2 border-gray-200 w-full')}>
+        <View style={tailwind('border-b-2 border-gray-100 w-full bg-white')}>
             <View style={tailwind('p-2 flex-row  w-80')}>
                 <View>
                     <Pressable onPress={() => navigation.navigate('Profile')}><Image style={tailwind('w-10 h-10 rounded-full mr-3')} source={profile} alt="" /></Pressable>
