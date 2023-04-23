@@ -1,4 +1,54 @@
 {
+	"fixed": {
+		"style": {
+			"position": "fixed"
+		}
+	},
+	"absolute": {
+		"style": {
+			"position": "absolute"
+		}
+	},
+	"relative": {
+		"style": {
+			"position": "relative"
+		}
+	},
+	"bottom-4": {
+		"style": {
+			"bottom": 16
+		}
+	},
+	"right-2": {
+		"style": {
+			"right": 8
+		}
+	},
+	"right-10": {
+		"style": {
+			"right": 40
+		}
+	},
+	"bottom-10": {
+		"style": {
+			"bottom": 40
+		}
+	},
+	"left-10": {
+		"style": {
+			"left": 40
+		}
+	},
+	"right-5": {
+		"style": {
+			"right": 20
+		}
+	},
+	"bottom-6": {
+		"style": {
+			"bottom": 24
+		}
+	},
 	"mb-1": {
 		"style": {
 			"marginBottom": 4
@@ -50,6 +100,21 @@
 			"height": 40
 		}
 	},
+	"h-20": {
+		"style": {
+			"height": 80
+		}
+	},
+	"h-16": {
+		"style": {
+			"height": 64
+		}
+	},
+	"h-12": {
+		"style": {
+			"height": 48
+		}
+	},
 	"w-10": {
 		"style": {
 			"width": 40
@@ -65,6 +130,26 @@
 			"width": "100%"
 		}
 	},
+	"w-20": {
+		"style": {
+			"width": 80
+		}
+	},
+	"w-12": {
+		"style": {
+			"width": 48
+		}
+	},
+	"w-14": {
+		"style": {
+			"width": 56
+		}
+	},
+	"w-16": {
+		"style": {
+			"width": 64
+		}
+	},
 	"flex-row": {
 		"style": {
 			"flexDirection": "row"
@@ -73,6 +158,11 @@
 	"items-center": {
 		"style": {
 			"alignItems": "center"
+		}
+	},
+	"justify-center": {
+		"style": {
+			"justifyContent": "center"
 		}
 	},
 	"rounded-full": {
@@ -97,12 +187,26 @@
 			"borderLeftColor": "rgb(229 231 235 / var(--tw-border-opacity))"
 		}
 	},
+	"bg-blue-500": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(59 130 246 / var(--tw-bg-opacity))"
+		}
+	},
 	"p-2": {
 		"style": {
 			"paddingTop": 8,
 			"paddingRight": 8,
 			"paddingBottom": 8,
 			"paddingLeft": 8
+		}
+	},
+	"p-4": {
+		"style": {
+			"paddingTop": 16,
+			"paddingRight": 16,
+			"paddingBottom": 16,
+			"paddingLeft": 16
 		}
 	},
 	"font-bold": {
@@ -126,6 +230,12 @@
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(55 65 81 / var(--tw-text-opacity))"
+		}
+	},
+	"text-white": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 255 255 / var(--tw-text-opacity))"
 		}
 	}
 }
