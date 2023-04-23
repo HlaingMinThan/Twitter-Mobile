@@ -4,6 +4,7 @@ import { EvilIcons } from '@expo/vector-icons';
 import cover from '../assets/cover.png';
 import profile from '../assets/react.jpg';
 import { useTailwind } from 'tailwind-rn';
+import Button from './Button';
 
 export default function ProfileHeader() {
     let tailwind = useTailwind();
@@ -19,7 +20,7 @@ export default function ProfileHeader() {
                 <View>
                     <Avatar user={{ profile }} size={5} style={tailwind('absolute -bottom-4 ml-3')} />
                 </View>
-                <Pressable style={tailwind('bg-black px-4  mt-4 mr-3 py-2 rounded-full')}><Text style={tailwind('text-white font-bold')}>Follow</Text></Pressable>
+                <Button>Follow</Button>
             </View>
             {/* infos */}
             <View style={tailwind('ml-2 border-b-2 border-gray-100 pb-2')}>
