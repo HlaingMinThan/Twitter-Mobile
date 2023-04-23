@@ -67,7 +67,7 @@ export default function HomeScreen({ navigation }) {
                         <Text style={tailwind('mr-2 text-gray-500')}>@hlaingminthan</Text>
                         <Text style={tailwind('text-gray-500')}>. 9m</Text>
                     </View>
-                    <Text style={tailwind('text-gray-700')}>{item.description}</Text>
+                    <Text style={tailwind('text-gray-700')} numberOfLines={4}>{item.description}</Text>
                     <View style={tailwind('flex-row mt-2 items-center')}>
                         <View style={tailwind('flex-row items-center mr-6')}>
                             <EvilIcons name="comment" size={24} color="gray" />
