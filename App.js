@@ -3,11 +3,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
 import TweetScreen from './screens/TweetScreen';
 import NewTweetScreen from './screens/NewTweetScreen';
+import NotificationsScreen from './screens/NotificationsScreen';
+import InboxScreen from './screens/InboxScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from './screens/SearchScreen';
+import { Ionicons } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons'; 
+
+
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -17,10 +23,37 @@ const TabNavigator = () => {
 
   return (
     <Tab.Navigator screenOptions={{
-      headerShown:false
+      headerShown:false,
+      tabBarShowLabel:false
     }}>
-      <Tab.Screen name="Home 1" component={HomeScreen} />
-      <Tab.Screen name="Search" component={SearchScreen} />
+      <Tab.Screen name="Home 1" component={HomeScreen} 
+        options={{
+          tabBarIcon : (({color,size}) => (
+            <Ionicons name="home" size={24} color={color} />
+          ) )
+        }}
+      />
+      <Tab.Screen name="Search" component={SearchScreen} 
+        options={{
+          tabBarIcon : (({color,size}) => (
+            <Ionicons name="search" size={24} color={color} />
+          ) )
+        }}
+      />
+      <Tab.Screen name="Notifications" component={NotificationsScreen} 
+        options={{
+          tabBarIcon : (({color,size}) => (
+            <Ionicons name="notifications" size={24} color={color} />
+          ) )
+        }}
+      />
+      <Tab.Screen name="Inbox" component={InboxScreen} 
+        options={{
+          tabBarIcon : (({color,size}) => (
+            <FontAwesome name="envelope" size={24} color={color} />
+          ) )
+        }}
+      />
     </Tab.Navigator>
   )
 }
