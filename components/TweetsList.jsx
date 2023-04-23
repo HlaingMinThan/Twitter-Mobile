@@ -1,10 +1,14 @@
+import Avatar from '../components/Avatar';
 import profile from '../assets/react.jpg';
 import { EvilIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FlatList, Pressable, Image, View, Text } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
+import { useNavigation } from '@react-navigation/native';
 
-export default function TweetsList({ navigation }) {
+export default function TweetsList({ ListHeaderComponent }) {
+    let navigation = useNavigation();
+
     const tailwind = useTailwind();
     const tweets = [
         {
@@ -58,7 +62,7 @@ export default function TweetsList({ navigation }) {
         <View style={tailwind('border-b-2 border-gray-100 w-full bg-white')}>
             <View style={tailwind('p-2 flex-row  w-80')}>
                 <View>
-                    <Pressable onPress={() => navigation.navigate('Profile')}><Image style={tailwind('w-10 h-10 rounded-full mr-3')} source={profile} alt="" /></Pressable>
+                    <Avatar user={{ profile }} />
                 </View>
                 <Pressable onPress={() => navigation.navigate('Tweet', {
                     id: item.id
@@ -91,7 +95,7 @@ export default function TweetsList({ navigation }) {
         </View>
     );
     return (
-        <FlatList data={tweets} renderItem={TweetItem}
+        <FlatList data={tweets} renderItem={TweetItem} ListHeaderComponent={ListHeaderComponent}
             keyExtractor={item => item.id}>
         </FlatList>
     )

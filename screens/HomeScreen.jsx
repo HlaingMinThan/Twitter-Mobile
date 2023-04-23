@@ -9,7 +9,7 @@ export default function HomeScreen({ navigation }) {
 
     return (
         <View style={tailwind('relative')}>
-            <TweetsList navigation={navigation} />
+            <TweetsList />
             <Pressable onPress={() => navigation.navigate('New Tweet')} style={tailwind('bg-blue-500 items-center justify-center w-12 h-12 rounded-full absolute bottom-6 right-5')}>
                 <AntDesign name="plus" size={20} color="white" />
             </Pressable>
