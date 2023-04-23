@@ -4,18 +4,29 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
 import TweetScreen from './screens/TweetScreen';
 import NewTweetScreen from './screens/NewTweetScreen';
+import SettingsScreen from './screens/SettingsScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
-export default function App() {
+const HomeStackNavigator = () => {
   return (
-    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Tweet" component={TweetScreen} />
         <Stack.Screen name="New Tweet" component={NewTweetScreen} />
       </Stack.Navigator>
+  )
+}
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+          <Drawer.Screen name="Home" component={HomeStackNavigator} />
+          <Drawer.Screen name="Settings" component={SettingsScreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
