@@ -9,11 +9,7 @@ export default function ProfileScreen() {
 
     return (
         <View style={tailwind('bg-white')}>
-
-            {/* tweets */}
-            <View style={tailwind('mt-3')}>
-                <TweetsList ListHeaderComponent={ProfileHeader} />
-            </View>
+            <TweetsList ListHeaderComponent={ProfileHeader} />
         </View>
     )
 }
