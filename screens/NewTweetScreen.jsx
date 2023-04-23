@@ -22,7 +22,7 @@ export default function NewTweetScreen() {
             </View>
             <View style={tailwind('flex-row')}>
                 <Avatar user={{ profile, }} size={3} style={tailwind('ml-3 mr-1')} />
-                <TextInput maxLength={textMaxLength} onChangeText={setTweet} value={tweet} placeholder="What's Happening" style={tailwind('w-full')} ></TextInput>
+                <TextInput multiline maxLength={textMaxLength} onChangeText={setTweet} value={tweet} placeholder="What's Happening" style={tailwind('w-full h-full pb-10 flex-wrap pr-28')} ></TextInput>
                 {error && <Text style={tailwind('text-red-500 text-xs mt-1')}>{error}</Text>}
             </View>
         </View >
