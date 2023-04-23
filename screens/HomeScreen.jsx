@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View, Text, Image } from 'react-native'
+import { FlatList, View, Text, Image, Pressable } from 'react-native'
 import { useTailwind } from 'tailwind-rn';
 import profile from '../assets/react.jpg';
 import { EvilIcons } from '@expo/vector-icons';
@@ -59,12 +59,14 @@ export default function HomeScreen({ navigation }) {
         <View style={tailwind('border-b-2 border-gray-200 w-full')}>
             <View style={tailwind('p-2 flex-row  w-80')}>
                 <View>
-                    <View><Image style={tailwind('w-10 h-10 rounded-full mr-3')} source={profile} alt="" /></View>
+                    <Pressable onPress={() => navigation.navigate('Profile')}><Image style={tailwind('w-10 h-10 rounded-full mr-3')} source={profile} alt="" /></Pressable>
                 </View>
-                <View>
+                <Pressable onPress={() => navigation.navigate('Tweet', {
+                    id: item.id
+                })} HitRect={3}>
                     <View style={tailwind('flex-row mb-1')}>
-                        <Text style={tailwind('mr-2 font-bold')}>{item.title}</Text>
-                        <Text style={tailwind('mr-2 text-gray-500')}>@hlaingminthan</Text>
+                        <Text style={tailwind('mr-2 font-bold')} numberOfLines={1}>{item.title}</Text>
+                        <Text style={tailwind('mr-2 text-gray-500')} numberOfLines={1}>@hlaingminthan</Text>
                         <Text style={tailwind('text-gray-500')}>. 9m</Text>
                     </View>
                     <Text style={tailwind('text-gray-700')} numberOfLines={4}>{item.description}</Text>
@@ -85,7 +87,7 @@ export default function HomeScreen({ navigation }) {
                             <EvilIcons name="share-google" size={24} color="gray" />
                         </View>
                     </View>
-                </View>
+                </Pressable>
             </View>
         </View>
     );

@@ -6,6 +6,7 @@ import NewTweetScreen from './screens/NewTweetScreen';
 import NotificationsScreen from './screens/NotificationsScreen';
 import InboxScreen from './screens/InboxScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -14,8 +15,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons'; 
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from './tailwind.json';
-
-
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -65,6 +64,7 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator initialRouteName='Home' >
       <Drawer.Screen name="Home" component={TabNavigator} />
+      <Drawer.Screen name="Profile 2" options={{title : "Profile"}} component={ProfileScreen} />
       <Drawer.Screen name="Settings" component={SettingsScreen} />
     </Drawer.Navigator>
   )
@@ -84,6 +84,7 @@ const StackNavigator = () => {
         <Stack.Screen name="Home 2" component={DrawerNavigator} />
         <Stack.Screen name="Tweet" component={TweetScreen} />
         <Stack.Screen name="New Tweet" component={NewTweetScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
   )
 }

@@ -32,6 +32,14 @@
 			"WebkitLineClamp": 4
 		}
 	},
+	"line-clamp-3": {
+		"style": {
+			"overflow": "hidden",
+			"display": "-webkit-box",
+			"WebkitBoxOrient": "vertical",
+			"WebkitLineClamp": 3
+		}
+	},
 	"hidden": {
 		"style": {
 			"display": "none"
