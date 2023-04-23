@@ -12,6 +12,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from './screens/SearchScreen';
 import { Ionicons } from '@expo/vector-icons'; 
 import { FontAwesome } from '@expo/vector-icons'; 
+import {TailwindProvider} from 'tailwind-rn';
+import utilities from './tailwind.json';
 
 
 
@@ -89,8 +91,10 @@ const StackNavigator = () => {
 export default function App() {
 
   return (
-    <NavigationContainer>
-      <StackNavigator/>
-    </NavigationContainer>
+    <TailwindProvider utilities={utilities}>
+      <NavigationContainer>
+        <StackNavigator/>
+      </NavigationContainer>
+    </TailwindProvider>
   );
 }
