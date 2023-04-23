@@ -20,8 +20,8 @@ export default function ProfileHeader() {
                 <View>
                     <Avatar user={{ profile }} size={5} style={tailwind('absolute -bottom-4 ml-3')} />
                 </View>
-                <Button>Follow</Button>
-            </View>
+                <Button style="mt-3">Follow</Button>
+            </View >
             {/* infos */}
             <View style={tailwind('ml-2 border-b-2 border-gray-100 pb-2')}>
                 <Text style={tailwind('font-bold text-2xl')}>Hlaing Min Than</Text>

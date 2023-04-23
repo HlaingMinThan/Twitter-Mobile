@@ -138,6 +138,10 @@
   margin-top: 0.75rem
 }
 
+.mt-10 {
+  margin-top: 2.5rem
+}
+
 .line-clamp-4 {
   overflow: hidden;
   display: -webkit-box;
@@ -154,6 +158,10 @@
 
 .inline {
   display: inline
+}
+
+.flex {
+  display: flex
 }
 
 .hidden {
@@ -220,6 +228,10 @@
   width: 4rem
 }
 
+.w-40 {
+  width: 10rem
+}
+
 .flex-row {
   flex-direction: row
 }
@@ -248,6 +260,10 @@
   border-radius: 9999px
 }
 
+.border-2 {
+  border-width: 2px
+}
+
 .border-b-2 {
   border-bottom-width: 2px
 }
@@ -260,6 +276,16 @@
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity))
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity))
+}
+
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity))
 }
 
 .bg-blue-500 {
