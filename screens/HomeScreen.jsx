@@ -17,12 +17,17 @@ export default function HomeScreen({ navigation }) {
     let getTweets = async (isLoading = true) => {
         setIsLoading(isLoading);
         const res = await axios.get('http://localhost:3000/tweets?page=' + page);
-        setTweets(prev => [...prev, ...res.data.data])
+        if (page === 1) {
+            setTweets(res.data.data)
+        } else {
+            setTweets(prev => [...prev, ...res.data.data])
+        }
         setIsLoading(false);
         setIsEndLoading(false);
     }
 
     let refreshHandler = async () => {
+        setPage(1);
         setIsRefreshing(true);
         await getTweets(false);
         setIsRefreshing(false);
