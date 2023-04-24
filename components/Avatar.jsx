@@ -7,6 +7,6 @@ export default function Avatar({ user, size = 3, style }) {
     let tailwind = useTailwind();
 
     return (
-        <Pressable onPress={() => navigation.navigate('Profile')} style={style}><Image style={tailwind(`w-${size * 4} h-${size * 4} rounded-full mr-3`)} source={user.profile} alt="" /></Pressable>
+        <Pressable onPress={() => navigation.navigate('Profile')} style={style}><Image style={tailwind(`w-${size * 4} h-${size * 4} rounded-full mr-3`)} source={{ uri: user.profile }} alt="" /></Pressable>
     )
 }
