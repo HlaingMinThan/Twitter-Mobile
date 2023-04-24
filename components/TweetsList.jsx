@@ -7,7 +7,7 @@ import { useTailwind } from 'tailwind-rn';
 import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
 
-export default function TweetsList({ ListHeaderComponent, tweets }) {
+export default function TweetsList({ ListHeaderComponent, tweets, onRefresh, refreshing }) {
     let navigation = useNavigation();
 
     const tailwind = useTailwind();
@@ -49,7 +49,7 @@ export default function TweetsList({ ListHeaderComponent, tweets }) {
         </View>
     );
     return (
-        <FlatList data={tweets} renderItem={TweetItem} ListHeaderComponent={ListHeaderComponent}
+        <FlatList data={tweets} renderItem={TweetItem} ListHeaderComponent={ListHeaderComponent} refreshing={refreshing} onRefresh={onRefresh}
             keyExtractor={item => item.id}>
         </FlatList>
     )

@@ -10,12 +10,20 @@ export default function HomeScreen({ navigation }) {
     const tailwind = useTailwind();
     let [tweets, setTweets] = useState([]);
     let [isLoading, setIsLoading] = useState(false);
+    let [isRefreshing, setIsRefreshing] = useState(false);
 
-    let getTweets = async () => {
-        setIsLoading(true);
+    let getTweets = async (isLoading = true) => {
+        setIsLoading(isLoading);
         const res = await axios.get('http://localhost:3000/tweets');
         setTweets(res.data)
         setIsLoading(false);
+
+    }
+
+    let refreshHandler = async () => {
+        setIsRefreshing(true);
+        await getTweets(false);
+        setIsRefreshing(false);
     }
 
     useFocusEffect(
@@ -27,7 +35,7 @@ export default function HomeScreen({ navigation }) {
     return (
         <View style={tailwind('relative h-full bg-white')}>
             {isLoading && <ActivityIndicator size="large" color="gray" style={tailwind('mt-3')} />}
-            {!isLoading && <TweetsList tweets={tweets} />}
+            {!isLoading && <TweetsList tweets={tweets} onRefresh={refreshHandler} refreshing={isRefreshing} />}
             <Pressable onPress={() => navigation.navigate('New Tweet')} style={tailwind('bg-blue-500 items-center justify-center w-12 h-12 rounded-full absolute bottom-6 right-5')}>
                 <AntDesign name="plus" size={20} color="white" />
             </Pressable>
