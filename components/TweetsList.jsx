@@ -22,7 +22,7 @@ export default function TweetsList({ ListHeaderComponent, tweets, onRefresh, ref
                     id: item.id
                 })} HitRect={3}>
                     <View style={tailwind('flex-row mb-1')}>
-                        <Text style={tailwind('mr-2 font-bold')} numberOfLines={1}>{item.title}</Text>
+                        <Text style={tailwind('mr-2 font-bold')} numberOfLines={1}>{item.author.name}</Text>
                         <Text style={tailwind('mr-2 text-gray-500')} numberOfLines={1}>@{item.author.username}</Text>
                         <Text style={tailwind('text-gray-500')}>. {moment(item.createdAt).fromNow(true)}</Text>
                     </View>

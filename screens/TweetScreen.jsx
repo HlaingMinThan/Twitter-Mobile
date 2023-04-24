@@ -39,7 +39,7 @@ export default function TweetScreen({ route, navigation }) {
                             </View>
                             <View>
                                 <View style={tailwind('mb-1')}>
-                                    <Text style={tailwind('font-bold')} numberOfLines={1}>{tweet.title}</Text>
+                                    <Text style={tailwind('font-bold')} numberOfLines={1}>{tweet.author.name}</Text>
                                     <Text style={tailwind('mt-1 text-gray-500')} numberOfLines={1}>@{tweet.author.username}</Text>
                                 </View>
                             </View>
