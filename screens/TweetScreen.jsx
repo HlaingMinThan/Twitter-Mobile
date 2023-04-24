@@ -7,6 +7,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import axios from 'axios';
 import Avatar from '../components/Avatar';
+import moment from 'moment';
 
 export default function TweetScreen({ route, navigation }) {
     let tailwind = useTailwind();
@@ -44,6 +45,11 @@ export default function TweetScreen({ route, navigation }) {
                             </View>
                         </View>
                         <Text style={tailwind('text-gray-700 text-lg mt-1')}>{tweet.description}</Text>
+                        <View style={tailwind('flex-row mt-2 items-center')}>
+                            <Text style={tailwind('text-gray-500 mr-3')}>{moment(tweet.createdAt).format('h:mm A')}</Text>
+                            <Text style={tailwind('text-gray-500 mr-3')}>. {moment(tweet.createdAt).format('DD MMM YY')}</Text>
+                            <Text style={tailwind('text-blue-500')}>Twitter for iphone</Text>
+                        </View>
                     </View>
                     <View style={tailwind('flex-row mt-2 items-center border-b-2 border-gray-100 pb-3')}>
                         <View style={tailwind('flex-row items-center mr-6')}>
