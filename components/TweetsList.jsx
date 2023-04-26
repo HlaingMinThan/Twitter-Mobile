@@ -18,7 +18,7 @@ export default function TweetsList({ tweetListRef, ListHeaderComponent, tweets, 
                 <View>
                     <Avatar user={item.author} />
                 </View>
-                <Pressable onPress={() => navigation.navigate('Tweet', {
+                <Pressable style={tailwind('w-full')} onPress={() => navigation.navigate('Tweet', {
                     id: item.id
                 })} HitRect={3}>
                     <View style={tailwind('flex-row mb-1')}>
