@@ -7,6 +7,8 @@ export default function Avatar({ user = { profile: 'https://i.pravatar.cc/150?im
     let tailwind = useTailwind();
 
     return (
-        <Pressable onPress={() => navigation.navigate('Profile')} style={style}><Image style={tailwind(`w-${size * 4} h-${size * 4} rounded-full mr-3`)} source={{ uri: user.profile }} alt="" /></Pressable>
+        <Pressable onPress={() => navigation.navigate('Profile', {
+            id: user.id
+        })} style={style}><Image style={tailwind(`w-${size * 4} h-${size * 4} rounded-full mr-3`)} source={{ uri: user.profile }} alt="" /></Pressable>
     )
 }
