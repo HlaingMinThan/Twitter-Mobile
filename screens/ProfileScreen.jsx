@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
 import TweetsList from '../components/TweetsList';
 import ProfileHeader from '../components/ProfileHeader';
-import { useTailwind } from 'tailwind-rn';
 import { useFocusEffect } from '@react-navigation/native';
 import axios from 'axios';
 
 export default function ProfileScreen({ route }) {
-    let tailwind = useTailwind();
     let { id } = route.params;
     let [user, setUser] = useState(null);
     let getUser = async () => {
@@ -21,8 +18,6 @@ export default function ProfileScreen({ route }) {
     );
 
     return !!user && (
-        <View style={tailwind('bg-white')}>
-            <TweetsList ListHeaderComponent={<ProfileHeader user={user} />} />
-        </View>
+        <TweetsList tweets={user.tweets} ListHeaderComponent={<ProfileHeader user={user} />} />
     )
 }

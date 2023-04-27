@@ -11,7 +11,7 @@ export default function ProfileHeader({ user }) {
     let tailwind = useTailwind();
 
     return (
-        <>
+        <View style={tailwind('bg-white')}>
             {/* cover photo */}
             <View style={tailwind('relative')}>
                 <Image source={cover} style={tailwind('w-full h-32')}></Image>
@@ -39,6 +39,6 @@ export default function ProfileHeader({ user }) {
                     <Text style={tailwind('text-xs text-gray-500')}>Joined {moment(user.createdAt).format('MMM Y')}</Text>
                 </View>
             </View>
-        </>
+        </View>
     )
 }
