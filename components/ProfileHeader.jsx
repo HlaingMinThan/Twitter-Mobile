@@ -24,7 +24,7 @@ export default function ProfileHeader({ user }) {
                 <Button style="mt-3">Follow</Button>
             </View >
             {/* infos */}
-            <View style={tailwind('ml-2 border-b-2 border-gray-100 pb-2')}>
+            <View style={tailwind('border-b-2 border-gray-100 pb-2')}>
                 <Text style={tailwind('font-bold text-2xl')}>{user.name}</Text>
                 <Text style={tailwind('text-gray-500 text-xs')}>@{user.username}</Text>
                 <Text style={tailwind(' text-xs mt-2')}>{user.bio}</Text>

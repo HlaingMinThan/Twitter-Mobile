@@ -14,11 +14,9 @@ export default function TweetScreen({ route, navigation }) {
     let [tweet, setTweet] = useState(null);
     let [isLoading, setIsLoading] = useState(true);
     let { id } = route.params;
-    console.log(id)
     let getTweet = async () => {
         setIsLoading(true);
         const res = await axios.get('http://localhost:3000/tweets/' + id);
-        console.log(res.data)
         setTweet(res.data)
         setIsLoading(false);
     }

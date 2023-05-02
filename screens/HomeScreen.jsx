@@ -1,58 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { View, Pressable, ActivityIndicator } from 'react-native'
 import { useTailwind } from 'tailwind-rn';
 import { AntDesign } from '@expo/vector-icons';
 import TweetsList from '../components/TweetsList';
-import axios from 'axios';
+import useTweets from '../hooks/useTweets';
 
 export default function HomeScreen({ navigation, route }) {
     let tweetListRef = useRef()
+    const tailwind = useTailwind();
+    const { isLoading, tweets, isRefreshing, refreshHandler, handleEndReaching, isEndLoading, getRefreshTweets } = useTweets('http://localhost:3000/tweets')
     useEffect(() => {
         if (route.params?.newTweetAdded) {
             tweetListRef.current.scrollToOffset({ offset: 0 });
             getRefreshTweets()
         }
     }, [route.params]);
-
-    let getRefreshTweets = () => {
-        setPage(1);
-        getTweets(false)
-    }
-
-    const tailwind = useTailwind();
-    let [tweets, setTweets] = useState([]);
-    let [isLoading, setIsLoading] = useState(false);
-    let [isEndLoading, setIsEndLoading] = useState(false);
-    let [isRefreshing, setIsRefreshing] = useState(false);
-    let [page, setPage] = useState(1);
-
-    let getTweets = async (isLoading = true) => {
-        setIsLoading(isLoading);
-        const res = await axios.get('http://localhost:3000/tweets?page=' + page);
-        if (page === 1) {
-            setTweets(res.data.data)
-        } else {
-            setTweets(prev => [...prev, ...res.data.data])
-        }
-        setIsLoading(false);
-        setIsEndLoading(false);
-    }
-
-    let refreshHandler = async () => {
-        setPage(1);
-        setIsRefreshing(true);
-        await getTweets(false);
-        setIsRefreshing(false);
-    }
-
-    let handleEndReaching = () => {
-        setIsEndLoading(true);
-        setPage(prev => prev + 1);
-    }
-
-    useEffect(() => {
-        getTweets(false)
-    }, [page]);
 
     return (
         <View style={tailwind('relative h-full bg-white')}>
