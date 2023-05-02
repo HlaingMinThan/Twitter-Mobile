@@ -19,7 +19,7 @@ export default function ProfileHeader({ user }) {
             {/* profile & follow */}
             <View style={tailwind('flex-row justify-between items-center w-full')}>
                 <View>
-                    <Avatar user={user} size={5} style={tailwind('absolute -bottom-4 ml-3')} />
+                    <Avatar user={user} size={5} style={tailwind('absolute -bottom-4')} />
                 </View>
                 <Button style="mt-3">Follow</Button>
             </View >
