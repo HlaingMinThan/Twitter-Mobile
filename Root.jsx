@@ -10,7 +10,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerContentScrollView, DrawerItem, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from './screens/SearchScreen';
 import { Ionicons } from '@expo/vector-icons';
@@ -64,10 +64,25 @@ const TabNavigator = () => {
   )
 }
 
+const CustomDrawerContent = (props) => {
+
+  let { logout } = useContext(AuthContext);
+
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+      <DrawerItem
+        label="Logout"
+        onPress={logout}
+      />
+    </DrawerContentScrollView>
+  );
+};
+
 const DrawerNavigator = () => {
 
   return (
-    <Drawer.Navigator initialRouteName='Home' >
+    <Drawer.Navigator initialRouteName='Home' drawerContent={(props) => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={TabNavigator} />
       <Drawer.Screen name="Profile 2" options={{ title: "Profile" }} component={ProfileScreen} />
       <Drawer.Screen name="Settings" component={SettingsScreen} />
