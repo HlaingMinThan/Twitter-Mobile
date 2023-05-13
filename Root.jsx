@@ -20,6 +20,7 @@ import utilities from './tailwind.json';
 import { AuthContext } from './contexts/AuthProvider';
 import { useContext, useEffect, useState } from 'react';
 import { ActivityIndicator, View, Text } from 'react-native';
+import * as SecureStore from 'expo-secure-store';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -129,13 +130,17 @@ export default function Root() {
   let tailwind = useTailwind();
   let [isLoading, setIsLoading] = useState(false);
 
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   useEffect(() => {
     //simulate connection to backend
     setIsLoading(true);
-    setTimeout(() => {
+    SecureStore.getItemAsync('user').then(user => {
+      setUser(user)
       setIsLoading(false);
-    }, 2000);
+    }).catch(e => {
+      console.log(e)
+      setIsLoading(false);
+    })
 
   }, []);
   console.log(user)

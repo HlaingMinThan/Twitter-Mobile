@@ -1,4 +1,7 @@
 import React, { createContext, useState } from 'react'
+
+import * as SecureStore from 'expo-secure-store';
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -11,10 +14,11 @@ export const AuthProvider = ({ children }) => {
             login : (email,password) => {
                 //communicate with backend
                 //store token in secureStore
-
+                SecureStore.setItemAsync("user", "HMT");
                 setUser('hlaingminthan')
             },
             logout :() => {
+                SecureStore.deleteItemAsync("user");
                 setUser(null);
             }
             }}>
