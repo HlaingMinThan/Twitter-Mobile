@@ -7,6 +7,8 @@ import NotificationsScreen from './screens/NotificationsScreen';
 import InboxScreen from './screens/InboxScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -91,6 +93,22 @@ const StackNavigator = () => {
     </Stack.Navigator>
   )
 }
+const AuthStackNavigator = () => {
+
+  return (
+    <Stack.Navigator screenOptions={() => (
+      {
+        headerShown: false,
+        title: "",
+        headerBackTitleVisible: false
+      }
+    )}>
+      {/* show drawer first , if user click on apart of DrawerNavigator routes, it'll hide drawer */}
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
+    </Stack.Navigator>
+  )
+}
 
 export default function Root() {
   let tailwind = useTailwind();
@@ -120,9 +138,9 @@ export default function Root() {
         <StackNavigator />
       </NavigationContainer>
     ) : (
-      <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-        <Text>Login page</Text>
-      </View>
+      <NavigationContainer>
+        <AuthStackNavigator />
+      </NavigationContainer>
     )
   );
 }

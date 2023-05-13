@@ -18,6 +18,11 @@
   right: 1.25rem
 }
 
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem
+}
+
 .mb-1 {
   margin-bottom: 0.25rem
 }
@@ -52,6 +57,14 @@
 
 .mt-3 {
   margin-top: 0.75rem
+}
+
+.ml-2 {
+  margin-left: 0.5rem
+}
+
+.flex {
+  display: flex
 }
 
 .h-12 {
@@ -110,6 +123,10 @@
   border-radius: 9999px
 }
 
+.border {
+  border-width: 1px
+}
+
 .border-b-2 {
   border-bottom-width: 2px
 }
@@ -117,6 +134,21 @@
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity))
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity))
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity))
+}
+
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity))
 }
 
 .bg-black {
@@ -152,6 +184,11 @@
   padding-bottom: 0.5rem
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem
+}
+
 .pb-10 {
   padding-bottom: 2.5rem
 }
@@ -183,6 +220,21 @@
   line-height: 1rem
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem
+}
+
 .font-bold {
   font-weight: 700
 }
@@ -210,4 +262,8 @@
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.underline {
+  text-decoration-line: underline
 }
