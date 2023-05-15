@@ -127,7 +127,6 @@ const AuthStackNavigator = () => {
 }
 
 export default function Root() {
-  let tailwind = useTailwind();
   let [isLoading, setIsLoading] = useState(false);
 
   const { user, setUser } = useContext(AuthContext);
@@ -135,7 +134,7 @@ export default function Root() {
     //simulate connection to backend
     setIsLoading(true);
     SecureStore.getItemAsync('user').then(user => {
-      setUser(user)
+      setUser(JSON.parse(user))
       setIsLoading(false);
     }).catch(e => {
       console.log(e)
@@ -143,7 +142,6 @@ export default function Root() {
     })
 
   }, []);
-  console.log(user)
   if (isLoading) {
     return (
       <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
