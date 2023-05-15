@@ -1,5 +1,4 @@
 import Avatar from '../components/Avatar';
-import profile from '../assets/react.jpg';
 import { EvilIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FlatList, Pressable, Image, View, Text } from 'react-native';

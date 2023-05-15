@@ -2,7 +2,6 @@ import { Image, Pressable, Text, View } from "react-native";
 import Avatar from "./Avatar";
 import { EvilIcons } from '@expo/vector-icons';
 import cover from '../assets/cover.png';
-import profile from '../assets/react.jpg';
 import { useTailwind } from 'tailwind-rn';
 import Button from './Button';
 import moment from "moment";
@@ -19,7 +18,7 @@ export default function ProfileHeader({ user }) {
             {/* profile & follow */}
             <View style={tailwind('flex-row justify-between items-center w-full')}>
                 <View>
-                    <Avatar user={user} size={5} style={tailwind('absolute -bottom-4')} />
+                    <Avatar user={user} style={tailwind('absolute -bottom-4')} />
                 </View>
                 <Button style="mt-3">Follow</Button>
             </View >

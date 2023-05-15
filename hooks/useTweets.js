@@ -7,11 +7,14 @@ function useTweets(url) {
     let [isLoading, setIsLoading] = useState(false);
     let [isEndLoading, setIsEndLoading] = useState(false);
     let [isRefreshing, setIsRefreshing] = useState(false);
+    let [dataLoaded, setDataLoaded] = useState(false);
     let [page, setPage] = useState(1);
 
     let getTweets = async (isLoading = true) => {
+        setDataLoaded(false);
         setIsLoading(isLoading);
         const res = await axios.get(url+'?page=' + page);
+        setDataLoaded(res.data.totalPages === 1)
         if (page === 1) {
             setTweets(res.data.data)
         } else {
@@ -29,6 +32,9 @@ function useTweets(url) {
     }
 
     let handleEndReaching = () => {
+        if(dataLoaded){
+            return;
+        }
         setIsEndLoading(true);
         setPage(prev => prev + 1);
     }
