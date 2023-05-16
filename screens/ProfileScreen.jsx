@@ -6,6 +6,7 @@ import axios from 'axios';
 import useTweets from '../hooks/useTweets';
 import { ActivityIndicator } from 'react-native';
 import { View } from 'react-native';
+import { useTailwind } from 'tailwind-rn';
 
 export default function ProfileScreen({ route }) {
     let { id } = route.params;
@@ -22,8 +23,10 @@ export default function ProfileScreen({ route }) {
         }, [])
     );
 
+    let tailwind = useTailwind();
+
     return !!user &&
-        <View>
+        <View style={tailwind('h-full bg-white')}>
             <TweetsList
                 ListHeaderComponent={<ProfileHeader user={user} />}
                 ListFooterComponent={isEndLoading && <ActivityIndicator size="large" color="gray" />}

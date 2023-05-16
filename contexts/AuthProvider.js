@@ -48,9 +48,10 @@ export const AuthProvider = ({ children }) => {
                    authErrorHandler(e)
                 })
             },
-            register : (username,email,password) => {
+            register : (name,username,email,password) => {
                 setError(null);
                 axios.post('http://localhost:3000/register', {
+                    name,
                     username,
                     email,
                     password

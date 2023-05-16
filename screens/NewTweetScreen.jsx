@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Text, View, TextInput, ActivityIndicator, Alert } from 'react-native'
 import Button from '../components/Button'
 import Avatar from "../components/Avatar";
 import { useTailwind } from 'tailwind-rn';
 import axios from 'axios';
+import { AuthContext } from '../contexts/AuthProvider';
 
 export default function NewTweetScreen({ navigation }) {
     let tailwind = useTailwind();
@@ -12,11 +13,16 @@ export default function NewTweetScreen({ navigation }) {
 
     let textMaxLength = 280;
 
+    let { user } = useContext(AuthContext);
+
     let postTweet = async () => {
         setIsLoading(true);
         if (!tweet.length) {
             Alert.alert('please write some tweet first.');
         }
+        const token = user.token
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
         let res = await axios.post('http://localhost:3000/tweets', {
             description: tweet
         })
