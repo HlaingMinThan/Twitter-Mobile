@@ -9,7 +9,7 @@ export default function Register({ navigation }) {
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     let tailwind = useTailwind();
-    let { register, error } = useContext(AuthContext);
+    let { register, error, setError } = useContext(AuthContext);
 
     return (
         <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
@@ -25,7 +25,7 @@ export default function Register({ navigation }) {
             </Pressable>
             <View style={tailwind('flex-row items-center justify-center mt-3')}>
                 <Text>Already have an account ?</Text>
-                <Text style={tailwind('text-blue-500 ml-2 underline')} onPress={() => navigation.navigate('Login')}>Login Here</Text>
+                <Text style={tailwind('text-blue-500 ml-2 underline')} onPress={() => { navigation.navigate('Login'); setError(null); }}>Login Here</Text>
             </View>
         </View>
     )

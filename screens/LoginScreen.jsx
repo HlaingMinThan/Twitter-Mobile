@@ -7,7 +7,7 @@ export default function LoginScreen({ navigation }) {
     let tailwind = useTailwind();
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
-    let { login, error } = useContext(AuthContext);
+    let { login, error, setError } = useContext(AuthContext);
 
     return (
         <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
@@ -22,7 +22,7 @@ export default function LoginScreen({ navigation }) {
             </Pressable>
             <View style={tailwind('flex-row items-center justify-center mt-3')}>
                 <Text>Don't have an account ?</Text>
-                <Text style={tailwind('text-blue-500 ml-2 underline')} onPress={() => navigation.navigate('Register')}>Register Now</Text>
+                <Text style={tailwind('text-blue-500 ml-2 underline')} onPress={() => { navigation.navigate('Register'); setError(null); }}>Register Now</Text>
             </View>
         </View>
     )
