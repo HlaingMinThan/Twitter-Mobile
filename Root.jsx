@@ -85,7 +85,7 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator initialRouteName='Home' drawerContent={(props) => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={TabNavigator} />
-      <Drawer.Screen name="Profile 2" initialParams={{ id: user.id }} options={{ title: "Profile" }} component={ProfileScreen} />
+      <Drawer.Screen name="Profile 2" initialParams={{ id: user.id }} options={{ title: "Profile", unmountOnBlur: true }} component={ProfileScreen} />
       <Drawer.Screen name="Settings" component={SettingsScreen} />
     </Drawer.Navigator>
   )
